@@ -3,7 +3,12 @@ const port = 8080;
 
 const requestHandler = (request,response) => {
 	console.log(request.url);
-	response.end('<H1>Hello Devops Dmeo!</H1>');
+	if (request.url === "/health") {
+		response.end('healthy!');
+	} else {
+		response.end('<H1>Hello Devops Dmeo!</H1>');
+	}
+	
 };
 
 const server = http.createServer(requestHandler);
